@@ -23,7 +23,7 @@ const aWeekAgo = day().add(9, 'day').format('--MM-DD');
 			rdfs:label ?name.
 			FILTER("${nextMonday}"^^xsd:gMonthDay <= ?date)
 			FILTER(?date <= "${aWeekAgo}"^^xsd:gMonthDay)
-		}
+		} ORDER BY ?date
 		`,
 	})}`, {
 		headers: {
