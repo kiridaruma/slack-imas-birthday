@@ -49,6 +49,7 @@ const today = day().format('--MM-DD');
 		const twitter = `https://twitter.com/search?${qs.encode({ q: name })}`;
 		const pixiv = `https://www.pixiv.net/search.php?${qs.encode({ s_mode: 's_tag', word: name })}`;
 		const niconico = `https://www.nicovideo.jp/search/${encodeURIComponent(name)}?sort=f&order=d`;
+		const pixivDic = `https://dic.pixiv.net/a/${encodeURI(name)}`
 
 		slack.send({
 			text: `${day().format('M月D日')}は *${name}* の誕生日です🎉\n<${twitter}|[Twitter検索]> <${pixiv}|[pixiv検索]> <${niconico}|[niconico検索]>`,
@@ -57,6 +58,10 @@ const today = day().format('--MM-DD');
 					image_url: image,
 				}
 			],
+			channel: process.env.SLACK_WEBHOOK_CHANNEL
+		});
+		slack.send({
+			text: `${pixivDic}`,
 			channel: process.env.SLACK_WEBHOOK_CHANNEL
 		});
 	}
