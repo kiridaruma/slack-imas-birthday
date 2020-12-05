@@ -58,7 +58,7 @@ const today = day().format('--MM-DD');
 					type: "section",
 					text: {
 						type: "mrkdwn",
-						text: `${day().format('M月D日')}は${name}の誕生日です🎉\n<${twitter}|[Twitter検索]> <${pixiv}|[pixiv検索]> <${niconico}|[niconico検索]>`
+						text: `${day().format('M月D日')}は *${name}* の誕生日です🎉\n<${twitter}|[Twitter検索]> <${pixiv}|[pixiv検索]> <${niconico}|[niconico検索]>`
 					}
 				}, {
 					type: "image",
