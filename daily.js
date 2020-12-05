@@ -52,16 +52,21 @@ const today = day().format('--MM-DD');
 		const pixivDic = `https://dic.pixiv.net/a/${encodeURI(name)}`
 
 		slack.send({
-			text: `${day().format('M月D日')}は *${name}* の誕生日です🎉\n<${twitter}|[Twitter検索]> <${pixiv}|[pixiv検索]> <${niconico}|[niconico検索]>`,
-			attachments: [
+			text: `<${pixivDic}>`,
+			blocks: [
 				{
+					type: "section",
+					text: {
+						type: "mrkdwn",
+						text: `${day().format('M月D日')}は${name}の誕生日です🎉\n<${twitter}|[Twitter検索]> <${pixiv}|[pixiv検索]> <${niconico}|[niconico検索]>`
+					}
+				}, {
+					type: "image",
 					image_url: image,
+					alt_text: name
 				}
 			],
-			channel: process.env.SLACK_WEBHOOK_CHANNEL
-		});
-		slack.send({
-			text: `${pixivDic}`,
+			unfurl_links: true,
 			channel: process.env.SLACK_WEBHOOK_CHANNEL
 		});
 	}
