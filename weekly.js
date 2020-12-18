@@ -17,7 +17,7 @@ const aWeekAgo = day().add(9, 'day').format('--MM-DD');
 		PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 		PREFIX schema: <http://schema.org/>
-		SELECT ?name ?date
+		SELECT DISTINCT ?name ?date
 		WHERE {
 			?idol schema:birthDate ?date;
 			rdfs:label ?name.

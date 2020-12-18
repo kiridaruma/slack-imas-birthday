@@ -16,7 +16,7 @@ const today = day().format('--MM-DD');
 			PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 			PREFIX schema: <http://schema.org/>
-			SELECT ?name
+			SELECT DISTINCT ?name
 			WHERE {
 				?idol schema:birthDate "${today}"^^xsd:gMonthDay;
 				rdfs:label ?name.
