@@ -1,5 +1,6 @@
 name: daily post
 on:
+  workflow_dispatch:
   schedule:
     - cron: '30 1 * * *'
 env:
